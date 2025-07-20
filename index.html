@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naynesh Mohane - Senior Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            background-color: rgba(59, 130, 246, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .dark-mode {
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
+        .dark-mode .bg-white {
+            background-color: #2d3748 !important;
+            color: #f7fafc !important;
+        }
+        .dark-mode .text-gray-800 {
+            color: #f7fafc !important;
+        }
+        .dark-mode .bg-gray-100 {
+            background-color: #4a5568 !important;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50 transition-colors duration-300">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full bg-white shadow-md z-50 transition-all duration-300 dark:bg-gray-800">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">Naynesh Mohane</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+                    <a href="#about" class="nav-link hover:text-blue-600 dark:hover:text-blue-400">About</a>
+                    <a href="#resume" class="nav-link hover:text-blue-600 dark:hover:text-blue-400">Resume</a>
+                    <a href="#projects" class="nav-link hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+                    <a href="#skills" class="nav-link hover:text-blue-600 dark:hover:text-blue-400">Skills</a>
+                    <a href="#contact" class="nav-link hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+                </div>
+                <button id="darkModeToggle" class="p-2 rounded-full focus:outline-none">
+                    <i class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
+                </button>
+                <button id="mobileMenuButton" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobileMenu" class="md:hidden hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 nav-link hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+                <a href="#about" class="block py-2 nav-link hover:text-blue-600 dark:hover:text-blue-400">About</a>
+                <a href="#resume" class="block py-2 nav-link hover:text-blue-600 dark:hover:text-blue-400">Resume</a>
+                <a href="#projects" class="block py-2 nav-link hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+                <a href="#skills" class="block py-2 nav-link hover:text-blue-600 dark:hover:text-blue-400">Skills</a>
+                <a href="#contact" class="block py-2 nav-link hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="particles" id="particles"></div>
+        <div class="container mx-auto px-6 py-20 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 dark:text-white">
+                <span class="text-blue-600">Hi, I'm Naynesh Mohane</span>
+            </h1>
+            <h2 class="text-2xl md:text-3xl mb-8 text-gray-600 dark:text-gray-300">
+                Senior Software Engineer specializing in Java, Spring Boot, Microservices, DevOps & Cloud
+            </h2>
+            <div class="flex justify-center space-x-4">
+                <a href="#resume" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105">
+                    View Resume
+                </a>
+                <a href="#contact" class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 dark:bg-gray-600 dark:hover:bg-gray-700">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800 section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 dark:text-white">Professional Summary</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Passionate Senior Software Engineer with 2+ years of backend development experience in enterprise IoT and cloud-based systems. 
+                            Strong expertise in Java, Spring Boot, AWS, and scalable API design.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            I specialize in building robust, scalable backend systems with a focus on performance and maintainability. 
+                            My experience spans across full software development lifecycle from requirements gathering to deployment and maintenance.
+                        </p>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-code text-4xl text-blue-600 dark:text-blue-400 mb-2"></i>
+                            <h4 class="font-semibold dark:text-white">Clean Code</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Following best practices and design patterns</p>
+                        </div>
+                        <div class="bg-green-100 dark:bg-green-900 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-server text-4xl text-green-600 dark:text-green-400 mb-2"></i>
+                            <h4 class="font-semibold dark:text-white">Microservices</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Distributed systems architecture</p>
+                        </div>
+                        <div class="bg-purple-100 dark:bg-purple-900 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-cloud text-4xl text-purple-600 dark:text-purple-400 mb-2"></i>
+                            <h4 class="font-semibold dark:text-white">Cloud Native</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">AWS, Azure, and cloud technologies</p>
+                        </div>
+                        <div class="bg-yellow-100 dark:bg-yellow-900 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-project-diagram text-4xl text-yellow-600 dark:text-yellow-400 mb-2"></i>
+                            <h4 class="font-semibold dark:text-white">CI/CD</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">DevOps and automation pipelines</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20 bg-gray-100 dark:bg-gray-700 section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">My Resume</h2>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
+                <!-- <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-semibold dark:text-white">Work Experience</h3>
+                    <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition duration-300">
+                        Download Resume <i class="fas fa-download ml-2"></i>
+                    </a>
+                </div> -->
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-semibold dark:text-white">Work Experience</h3>
+                    <a href="Naynesh_M_Resume.pdf" download class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition duration-300">
+                        Download Resume <i class="fas fa-download ml-2"></i>
+                    </a>
+                </div>
+                
+                
+                <div class="border-l-4 border-blue-600 pl-6 mb-8">
+                    <div class="mb-4">
+                        <h4 class="text-xl font-semibold dark:text-white">Senior Software Engineer</h4>
+                        <p class="text-gray-600 dark:text-gray-300">Softdel Systems Pvt Ltd | 2023 - Present</p>
+                    </div>
+                    <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                        <li>Developed 70+ Spring Boot REST APIs with optimized JSON structures.</li>
+                        <li>Built scalable backend for IoT Edge device (Edifice Edge) with AWS IoT Core and Azure IoT Hub integration.</li>
+                        <li>Optimized database queries reducing response times by 40% through indexing and query optimization</li>
+                        <li>Implemented CI/CD pipelines using GitHub Actions and Docker, reducing deployment time by 70%</li>
+                        <li>Reduced API response time by 30% and backend processing by 50% using Spring Batch and multi-threading.</li>
+                        <li>Automated 70% of Linux deployment tasks using Shell scripting.</li>
+                        <li>Worked in Agile teams, handled HLD/LLD documentation, unit testing, and Docker-based deployments.</li>
+                        <li>Collaborated with Angular frontend teams to ensure smooth REST integration.</li>
+                    </ul>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Java</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Spring Boot</span>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">AWS IoT</span>
+                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">Docker</span>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">MongoDB</span>
+                    </div>
+                </div>
+                
+               
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+                <h3 class="text-2xl font-semibold mb-6 dark:text-white">Education & Achievements</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="border-l-4 border-blue-600 pl-6">
+                        <h4 class="text-xl font-semibold dark:text-white">Bachelor of Engineering in Electronics and Telecommunications</h4>
+                        <p class="text-gray-600 dark:text-gray-300">Dr. D. Y. Patil Institute of Technology, Pimpri | 2019 - 2023</p>
+                        <p class="text-gray-600 dark:text-gray-300 mt-2">GPA: 8.71/10.0</p>
+                    </div>
+                    
+                    <div class="border-l-4 border-blue-600 pl-6">
+                        <h4 class="text-xl font-semibold dark:text-white">Certifications</h4>
+                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                            <li> The Complete 2024 Web Development Bootcamp– Udemy</li>
+                            <!-- <li>Oracle Certified Professional: Java SE 11 Developer</li>
+                            <li>Spring Professional Certification</li> -->
+                        </ul>
+                    </div>
+                    
+                    <div class="border-l-4 border-blue-600 pl-6">
+                        <h4 class="text-xl font-semibold dark:text-white">Awards</h4>
+                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                            <li>Rockstar Award (Q4 FY 24–25) for key contributions in enterprise IoT delivery.</li>
+                            <li>Solved 200+ LeetCode problems with a 170+ day streak.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="border-l-4 border-blue-600 pl-6">
+                        <h4 class="text-xl font-semibold dark:text-white">Publications</h4>
+                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                            <li>
+                                <a href="https://ieeexplore.ieee.org/document/10392023" target="_blank" class="text-blue-600 hover:underline dark:text-blue-400">
+                                    "Stock Price Prediction using LSTM" - IEEE Xplore
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-gray-800 section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Hands-On Work in Production IoT System</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-semibold dark:text-white">IoT Gateway for Edge Devices</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Active</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            A scalable gateway service that connects edge IoT devices to cloud platform, processing 1,000+ messages per second with MQTT protocol.
+                        </p>
+                        <div class="mb-4 flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Java</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Spring Boot</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">MQTT</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">AWS IoT Core</span>
+                        </div>
+                        <!-- <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+                
+               
+                
+                
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-semibold dark:text-white">Real-time Analytics Dashboard</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Completed</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            A real-time dashboard that visualizes IoT device data with WebSocket communication, processing 1,000+ events per second.
+                        </p>
+                        <div class="mb-4 flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Java</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Angular</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">MQTT</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">WebSocket</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">Spring Batch</span>
+                        </div>
+                        <!-- <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+                
+                
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-semibold dark:text-white">Device Management API</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Active</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            RESTful API for managing IoT devices with CRUD operations, authentication, and role-based access control.
+                        </p>
+                        <div class="mb-4 flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Java</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Spring Security</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">JWT</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">MongoDB</span>
+                        </div>
+                        <!-- <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+                
+               
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-semibold dark:text-white">CI/CD Pipeline Automation</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Completed</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Automated build, test, and deployment pipeline for microservices using GitHub Actions and Docker.
+                        </p>
+                        <div class="mb-4 flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">GitHub Actions</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Docker</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Linux</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">Shell Scripting</span>
+                        </div>
+                        <!-- <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+                
+             
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-semibold dark:text-white">Serverless Data Processing</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Active</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            AWS Lambda functions for processing IoT data streams with DynamoDB and TimeStreamDB for storage.
+                        </p>
+                        <div class="mb-4 flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">AWS Lambda</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">AWS IOT Core</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">TimeStreamDB</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">S3</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">AWS IAM</span>
+                        </div>
+                        <!-- <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-semibold dark:text-white">QuestDB POC</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Completed</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Successfully migrated time-series data storage from InfluxDB to QuestDB, including complete end-to-end PoC—ranging from Docker image creation to integration in the production environment.                        </p>
+                        <div class="mb-4 flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Docker</span>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Integration</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">InfluxDB</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">QuestDB</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">Authentication</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+           
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-100 dark:bg-gray-700 section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Technical Skills</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Languages -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-blue-600 text-xl mr-3 dark:text-blue-400"></i>
+                        <h3 class="text-xl font-semibold dark:text-white">Languages</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Java</span>
+                                <span class="text-gray-600 dark:text-gray-300">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">SQL</span>
+                                <span class="text-gray-600 dark:text-gray-300">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Python</span>
+                                <span class="text-gray-600 dark:text-gray-300">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">JavaScript</span>
+                                <span class="text-gray-600 dark:text-gray-300">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-blue-600 h-2.5 rounded-full skill-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Frameworks -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-cogs text-green-600 text-xl mr-3 dark:text-green-400"></i>
+                        <h3 class="text-xl font-semibold dark:text-white">Frameworks</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Spring Boot</span>
+                                <span class="text-gray-600 dark:text-gray-300">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-green-600 h-2.5 rounded-full skill-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Spring Cloud</span>
+                                <span class="text-gray-600 dark:text-gray-300">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-green-600 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">JPA/Hibernate</span>
+                                <span class="text-gray-600 dark:text-gray-300">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-green-600 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Micronaut</span>
+                                <span class="text-gray-600 dark:text-gray-300">70%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-green-600 h-2.5 rounded-full skill-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cloud -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-cloud text-purple-600 text-xl mr-3 dark:text-purple-400"></i>
+                        <h3 class="text-xl font-semibold dark:text-white">Cloud & DevOps</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">AWS</span>
+                                <span class="text-gray-600 dark:text-gray-300">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-purple-600 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Docker</span>
+                                <span class="text-gray-600 dark:text-gray-300">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-purple-600 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Kubernetes</span>
+                                <span class="text-gray-600 dark:text-gray-300">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-purple-600 h-2.5 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">CI/CD</span>
+                                <span class="text-gray-600 dark:text-gray-300">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-purple-600 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Databases -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-database text-yellow-600 text-xl mr-3 dark:text-yellow-400"></i>
+                        <h3 class="text-xl font-semibold dark:text-white">Databases</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">PostgreSQL</span>
+                                <span class="text-gray-600 dark:text-gray-300">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-yellow-600 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">MongoDB</span>
+                                <span class="text-gray-600 dark:text-gray-300">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-yellow-600 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">InfluxDB</span>
+                                <span class="text-gray-600 dark:text-gray-300">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-yellow-600 h-2.5 rounded-full skill-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Redis</span>
+                                <span class="text-gray-600 dark:text-gray-300">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-yellow-600 h-2.5 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Messaging -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-exchange-alt text-indigo-600 text-xl mr-3 dark:text-indigo-400"></i>
+                        <h3 class="text-xl font-semibold dark:text-white">Messaging</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Kafka</span>
+                                <span class="text-gray-600 dark:text-gray-300">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-indigo-600 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">MQTT</span>
+                                <span class="text-gray-600 dark:text-gray-300">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-indigo-600 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">RabbitMQ</span>
+                                <span class="text-gray-600 dark:text-gray-300">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-indigo-600 h-2.5 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">WebSocket</span>
+                                <span class="text-gray-600 dark:text-gray-300">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-indigo-600 h-2.5 rounded-full skill-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tools -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-tools text-red-600 text-xl mr-3 dark:text-red-400"></i>
+                        <h3 class="text-xl font-semibold dark:text-white">Tools</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Git</span>
+                                <span class="text-gray-600 dark:text-gray-300">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-red-600 h-2.5 rounded-full skill-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Eclipse</span>
+                                <span class="text-gray-600 dark:text-gray-300">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-red-600 h-2.5 rounded-full skill-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Postman</span>
+                                <span class="text-gray-600 dark:text-gray-300">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-red-600 h-2.5 rounded-full skill-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">IntelliJ IDEA</span>
+                                <span class="text-gray-600 dark:text-gray-300">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
+                                <div class="bg-red-600 h-2.5 rounded-full skill-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-800 section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Get In Touch</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="w-full mx-auto text-center">
+                    <div class="bg-gray-100 dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-6 dark:text-white">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="max-w-md mx-auto text-center">
+                                <a href="tel:+917083572792">
+                                    <div class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-full mr-4">
+                                        <i class="fas fa-mobile-alt text-yellow-600 dark:text-yellow-400"></i>
+                                    </div>
+                                    <div class="mt-2">
+                                        <h4 class="font-medium text-lg dark:text-white">Mobile</h4>
+                                        <p class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">
+                                            +91 70835 72792
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                           
+                            
+                            <div class="max-w-md mx-auto text-center">
+                                <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium dark:text-white">Email</h4>
+                                    <a href="mailto:nayneshmohane2001@gmail.com" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">
+                                        nayneshmohane2001@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="max-w-md mx-auto text-center">
+                                <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full mr-4">
+                                    <i class="fab fa-linkedin-in text-green-600 dark:text-green-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium dark:text-white">LinkedIn</h4>
+                                    <a href="https://in.linkedin.com/in/naynesh-mohane-07607b218" target="_blank" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">
+                                        linkedin.com/in/nayneshmohane
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="max-w-md mx-auto text-center">
+                                <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full mr-4">
+                                    <i class="fab fa-github text-purple-600 dark:text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium dark:text-white">GitHub</h4>
+                                    <a href="https://github.com/NayneshMohane7e" target="_blank" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">
+                                        github.com/nayneshmohane
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="max-w-md mx-auto text-center">
+                                <div class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-yellow-600 dark:text-yellow-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium dark:text-white">Location</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Pune, Maharashtra, India</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                       
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <!-- <div class="bg-gray-100 dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-6 dark:text-white">Send Me a Message</h3> -->
+                        
+                        <form id="contactForm" class="space-y-4">
+                           
+                        </form>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold text-blue-400">Naynesh Mohane</h2>
+                    <p class="text-gray-400 mt-2">Senior Software Engineer</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-4">
+                        <a href="https://in.linkedin.com/in/naynesh-mohane-07607b218" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="https://github.com/NayneshMohane7" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                       
+                    </div>
+                    
+                    <div class="flex flex-wrap justify-center md:justify-end gap-4">
+                        <a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a>
+                        <a href="#about" class="text-gray-400 hover:text-white transition duration-300">About</a>
+                        <a href="#resume" class="text-gray-400 hover:text-white transition duration-300">Resume</a>
+                        <a href="#projects" class="text-gray-400 hover:text-white transition duration-300">Projects</a>
+                        <a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Naynesh Mohane. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        
+        // Check for saved user preference, if any
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            html.classList.add('dark');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun text-yellow-300"></i>';
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                darkModeToggle.innerHTML = '<i class="fas fa-moon text-gray-700"></i>';
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun text-yellow-300"></i>';
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg', 'py-2');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.remove('shadow-lg', 'py-2');
+                navbar.classList.add('py-3');
+            }
+        });
+        
+        // Create particles for hero section
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 5 + 2;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 10;
+                const opacity = Math.random() * 0.5 + 0.1;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.opacity = opacity;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Animate skill bars when scrolled into view
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            
+            skillBars.forEach(bar => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const width = bar.style.width;
+                            bar.style.width = '0';
+                            setTimeout(() => {
+                                bar.style.width = width;
+                            }, 100);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(bar.parentElement);
+            });
+        }
+        
+        // Section fade-in animation
+        function animateSections() {
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                observer.observe(section);
+            });
+        }
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to a server
+            console.log({ name, email, subject, message });
+            
+            // Show success message
+            alert('Thank you for your message! I will get back to you soon.');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize functions when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            animateSkillBars();
+            animateSections();
+        });
+    </script>
+</body>
+</html>
